@@ -47,15 +47,15 @@
 %
 %  ROMS title names and directories
 %
-ROMS_title  = 'Benguela Model';
-ROMS_config = 'Benguela_LR';
+ROMS_title  = 'Labrador Model';
+ROMS_config = 'LABRADOR';
 %
 % Grid dimensions:
 %
-lonmin = -13;   % Minimum longitude [degree east]
-lonmax = -8;   % Maximum longitude [degree east]
-latmin = 38;   % Minimum latitudeF  [degree north]
-latmax = 45;   % Maximum latitude  [degree north]
+lonmax = -40;   % Maximum longitude [degree east]
+latmax = 55;   % Maximum latitude  [degree north]
+lonmin = -70;   % Minimum longitude [degree east]
+latmin = 25;   % Minimum latitude  [degree north]
 %
 % Grid resolution [degree]
 %

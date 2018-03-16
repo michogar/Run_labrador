@@ -46,7 +46,7 @@
 !
 */
                       /* Configuration Name */
-# define PORTUGAL
+# define LABRADOR
                       /* Parallelization */
 # define  OPENMP
 # undef  MPI
@@ -180,8 +180,8 @@
 # define ANA_BSFLUX
 # define ANA_BTFLUX
                       /* Point Sources - Rivers */
-# define PSOURCE
-# define PSOURCE_NCFILE
+# undef PSOURCE
+# undef PSOURCE_NCFILE
 # ifdef PSOURCE_NCFILE
 #   define PSOURCE_NCFILE_TS
 # endif
