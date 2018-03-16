@@ -1,2 +1,4 @@
-Compile/
-ROMS_FILES/*.nc
+roms
+Compile
+coastline*
+ROMS_FILES
