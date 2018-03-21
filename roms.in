@@ -1,5 +1,5 @@
 title:
-        BENGUELA TEST MODEL
+        LABRADOR MODEL
 time_stepping: NTIMES   dt[sec]  NDTFAST  NINFO
                 2160      1800     60      1
 S-coord: THETA_S,   THETA_B,    Hc (m)
