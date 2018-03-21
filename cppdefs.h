@@ -62,7 +62,7 @@
 # define OBC_NORTH
 # define OBC_SOUTH
                       /* Applications */
-# undef  BIOLOGY
+# define  BIOLOGY
 # define  FLOATS
 # undef  STATIONS
 # undef  PASSIVE_TRACER
@@ -229,9 +229,9 @@
                       /*   Choice of Biology models   */
 # ifdef BIOLOGY
 #  undef  PISCES
-#  undef BIO_NChlPZD
-#  undef  BIO_N2ChlPZD2
-#  define BIO_BioEBUS
+#  define BIO_NChlPZD
+#  undef BIO_N2ChlPZD2
+#  undef BIO_BioEBUS
                       /*   Biology options    */
 #  ifdef PISCES
 #   define DIURNAL_INPUT_SRFLX

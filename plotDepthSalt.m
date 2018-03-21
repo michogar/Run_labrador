@@ -26,7 +26,7 @@ for t=1:121
     for i=1:m
         x(:, i)=lon(1, i);
     end
-    s=squeeze(nc{'salt'}(t, :, floor(end/2), :)); s(s<1)=NaN;
+    s=squeeze(nc{'NO3'}(t, :, floor(end/2), :)); s(s<1)=NaN;
     
     pcolor(x, depth, s); pause(0.5);
 end
@@ -50,7 +50,7 @@ end
 
 %% Plot bathimetry
 clear all; close all;
-nc=netcdf('ROMS_FILES/roms_grd.nc.1');
+nc=netcdf('ROMS_FILES/roms_grd.nc');
 
 x=nc{'xi_rho'}(:); y=nc{'eta_rho'}(:); h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
