@@ -52,9 +52,9 @@ ROMS_config = 'LABRADOR';
 %
 % Grid dimensions:
 %
-lonmax = -40;   % Maximum longitude [degree east]
-latmax = 55;   % Maximum latitude  [degree north]
-lonmin = -70;   % Minimum longitude [degree east]
+lonmax = -60;   % Maximum longitude [degree east]
+latmax = 45;   % Maximum latitude  [degree north]
+lonmin = -80;   % Minimum longitude [degree east]
 latmin = 25;   % Minimum latitude  [degree north]
 %
 % Grid resolution [degree]

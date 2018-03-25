@@ -117,7 +117,7 @@
 #  elif defined  PORTUGAL
       parameter (LLm0=29,   MMm0=56,  N=32)   ! PORTUGAL
 #  elif defined  LABRADOR
-      parameter (LLm0=179,   MMm0=241,  N=32)   ! LABRADOR
+      parameter (LLm0=119,   MMm0=147,  N=32)   ! LABRADOR
 #  else
       parameter (LLm0=94,   MMm0=81,   N=40)
 #  endif

@@ -62,7 +62,7 @@
 # define OBC_NORTH
 # define OBC_SOUTH
                       /* Applications */
-# define  BIOLOGY
+# undef  BIOLOGY
 # define  FLOATS
 # undef  STATIONS
 # undef  PASSIVE_TRACER
