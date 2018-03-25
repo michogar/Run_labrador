@@ -15,20 +15,20 @@ end
 
 %% Plot section across longitude
 clear all; close all;
-nc=netcdf('ROMS_FILES/roms_his.nc');
+nc=netcdf('/media/michogarcia/MARSH/roms_his.nc');
 
-lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:); x=lon(end/2, :);
+lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:); x=lon(floor(end/2), :);
 h=nc{'h'}(floor(end/2), :); [kk, m]=size(lon);
 
-for t=1:121
+for t=1:31
     zeta=nc{'zeta'}(t, floor(end/2), :);
     depth=squeeze(zlevs(h, zeta, 6, 0, 10, 32, 'r', 1)); x=depth;
     for i=1:m
         x(:, i)=lon(1, i);
     end
-    s=squeeze(nc{'NO3'}(t, :, floor(end/2), :)); s(s<1)=NaN;
+    s=squeeze(nc{'salt'}(t, :, floor(end/2), :)); s(s<20)=NaN;
     
-    pcolor(x, depth, s); pause(0.5);
+    pcolor(x, depth, s); colorbar; pause(0.5);
 end
 
 
@@ -50,9 +50,9 @@ end
 
 %% Plot bathimetry
 clear all; close all;
-nc=netcdf('ROMS_FILES/roms_grd.nc');
+nc=netcdf('/media/michogarcia/MARSH/roms_his.nc');
 
-x=nc{'xi_rho'}(:); y=nc{'eta_rho'}(:); h=nc{'h'}(:);
+h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
 surf(lon, lat, -h);
 
@@ -249,3 +249,10 @@ for t=1:nt
     pcolor(lon, lat, salt); shading flat; title(num2str(t)); colorbar; pause(.5);
 end
 
+%%
+
+B = [ [1 2 3]' [2 4 7]' [3 5 8]'];
+
+for b = B(:)
+    disp(b)
+end
