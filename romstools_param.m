@@ -59,7 +59,7 @@ latmin = 25;   % Minimum latitude  [degree north]
 %
 % Grid resolution [degree]
 %
-dl = 1/6;
+dl = 1/10;
 %
 % Number of vertical Levels (! should be the same in param.h !)
 %
