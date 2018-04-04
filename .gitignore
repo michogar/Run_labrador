@@ -3,3 +3,4 @@ Compile
 coastline*
 ROMS_FILES
 *.gif
+*.out
