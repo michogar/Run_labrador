@@ -51,8 +51,8 @@
 # define  OPENMP
 # undef  MPI
                       /* Nesting */
-# undef  AGRIF
-# undef  AGRIF_2WAY
+# define  AGRIF
+# define  AGRIF_2WAY
                       /* OA Coupling via OASIS (MPI) */
 # undef  OA_COUPLING
                       /* Open Boundary Conditions */
