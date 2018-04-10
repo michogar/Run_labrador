@@ -146,7 +146,7 @@ if [[ $OS == Linux ]] ; then           # ===== LINUX =====
 		CPP1="cpp -traditional -DLinux -DIfort"
 		CFT1=ifort
 #		FFLAGS1="-O3 -w90 -w95 -cm -72 -fno-alias -i4 -r8 -fp-model precise"
-		FFLAGS1="-03 -xAVX -72 -fno-alias -i4 -r8"
+		FFLAGS1="-O3 -xAVX -72 -fno-alias -i4 -r8"
 		LDFLAGS1="-Vaxlib $LDFLAGS1"
 	elif [[ $LINUX_FC == gfortran ]] ; then
 		CPP1="cpp -traditional -DLinux"
@@ -319,7 +319,7 @@ if $($CPP1 testkeys.F | grep -i -q openmp) ; then
 		if [[ $LINUX_FC == gfortran ]] ; then
 			FFLAGS1="$FFLAGS1 -fopenmp"
 		elif [[ $LINUX_FC == ifort || $LINUX_FC == ifc ]] ; then
-			FFLAGS1="$FFLAGS1 -qopenmp"
+			FFLAGS1="$FFLAGS1 -openmp"
 		else
 			FFLAGS1="$FFLAGS1 -openmp"
 		fi

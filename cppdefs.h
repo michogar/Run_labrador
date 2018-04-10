@@ -63,7 +63,7 @@
 # define OBC_SOUTH
                       /* Applications */
 # undef  BIOLOGY
-# define  FLOATS
+# undef  FLOATS
 # undef  STATIONS
 # undef  PASSIVE_TRACER
 # undef  SEDIMENT
