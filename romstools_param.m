@@ -52,8 +52,8 @@ ROMS_config = 'LABRADOR';
 %
 % Grid dimensions:
 %
-lonmax = -60;   % Maximum longitude [degree east]
-latmax = 45;   % Maximum latitude  [degree north]
+lonmax = -45;   % Maximum longitude [degree east]
+latmax = 50;   % Maximum latitude  [degree north]
 lonmin = -80;   % Minimum longitude [degree east]
 latmin = 25;   % Minimum latitude  [degree north]
 %
@@ -147,7 +147,8 @@ RUN_dir=[pwd,'/'];
 %
 %  ROMS input netcdf files directory
 %
-ROMS_files_dir=[RUN_dir,'ROMS_FILES/'];
+%ROMS_files_dir=[RUN_dir,'ROMS_FILES/'];
+ROMS_files_dir='/media/michogarcia/Casa/ROMS_FILES/';
 %
 %  Global data directory (etopo, coads, datasets download from ftp, etc..)
 %
