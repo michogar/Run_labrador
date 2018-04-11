@@ -147,8 +147,8 @@ RUN_dir=[pwd,'/'];
 %
 %  ROMS input netcdf files directory
 %
-%ROMS_files_dir=[RUN_dir,'ROMS_FILES/'];
-ROMS_files_dir='/media/michogarcia/Casa/ROMS_FILES/';
+ROMS_files_dir=[RUN_dir,'ROMS_FILES/'];
+%ROMS_files_dir='/media/michogarcia/Casa/ROMS_FILES/';
 %
 %  Global data directory (etopo, coads, datasets download from ftp, etc..)
 %
