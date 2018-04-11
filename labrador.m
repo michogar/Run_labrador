@@ -1,6 +1,6 @@
 %% Plot surface
 clear all; close all;
-nc=netcdf('/media/michogarcia/Data/ROMS/roms_his.nc');
+nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
 
 [lon, lat] = getLonLat(nc);
 h = nc{'h'}(:); h(h<100)=NaN;
@@ -9,7 +9,7 @@ pcolor(lon, lat, -h); shading flat;
 
 %% Plot bathimetry
 clear all; close all;
-nc=netcdf('/media/michogarcia/Data/ROMS/roms_his.nc');
+nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
 
 h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
@@ -18,7 +18,7 @@ surf(lon, lat, -h);
 
 %% Plot section across longitude
 clear all; close all;
-nc=netcdf('/media/michogarcia/Data/ROMS/roms_his.nc');
+nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
 
 [lon, ~] = getLonLat(nc); x=lon(floor(end/2), :);
 h=nc{'h'}(floor(end/2), :); [~, m]=size(lon);
@@ -40,7 +40,7 @@ end
 
 %% Plot section across latitude
 clear all; close all;
-nc=netcdf('/media/michogarcia/Data/ROMS/roms_his.nc');
+nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
 
 [~, lat] = getLonLat(nc);
 h=nc{'h'}(:, floor(end/2)); [m, ~]=size(lat);
@@ -62,7 +62,7 @@ end
 
 %% Surface 
 clear all; close all;
-nc=netcdf('/media/michogarcia/Data/ROMS/roms_his.nc');
+nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
 
 [lon, lat] = getLonLat(nc);
 time=nc{'time'}(:); [maxt, ~]=size(time);
@@ -78,7 +78,7 @@ end
 %% Surface to GIF
 % https://waterprogramming.wordpress.com/2013/07/31/generating-gifs-from-matlab-figures/
 clear all; close all;
-nc=netcdf('/media/michogarcia/Data/ROMS/roms_his.nc');
+nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
 
 [lon, lat] = getLonLat(nc);
 time=nc{'time'}(:); [maxt, ~]=size(time);
