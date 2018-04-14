@@ -92,7 +92,7 @@ endLoop=120;
 for t=initLoop:endLoop
  
     temp=nc{'temp'}(t, 32, :, :); temp(temp==0)=NaN;
-    pcolor(lon, lat, temp); colorbar; shading flat; title(strcat("Day", " - ", num2str(nc{'time'}(t:t)/86400))); pause(0.2);
+    pcolor(lon, lat, temp); colorbar; shading flat; title(strcat("Day", " - ", num2str(nc{'time'}(t:t)/86400), " - ",  "temp ºC")); pause(0.2);
  
     % gif utilities
     set(gcf,'color','w'); % set figure background to white

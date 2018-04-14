@@ -93,7 +93,9 @@ hmax = 5000;
 %  in the same format)
 %
 TOPODIR = '../';
-topofile = [TOPODIR,'Topo/etopo2.nc'];
+%topofile = [TOPODIR,'Topo/etopo2.nc'];
+
+topofile = [TOPODIR,'GEBCO/gebco_topo.nc'];
 %
 % Slope parameter (r=grad(h)/h) maximum value for topography smoothing
 %
