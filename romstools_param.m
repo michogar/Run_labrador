@@ -52,14 +52,14 @@ ROMS_config = 'LABRADOR';
 %
 % Grid dimensions:
 %
-lonmax = -39;   % Maximum longitude [degree east]
+lonmax = -40;   % Maximum longitude [degree east]
 latmax = 50;   % Maximum latitude  [degree north]
-lonmin = -72;   % Minimum longitude [degree east]
-latmin = 30;   % Minimum latitude  [degree north]
+lonmin = -56;   % Minimum longitude [degree east]
+latmin = 40;   % Minimum latitude  [degree north]
 %
 % Grid resolution [degree]
 %
-dl = 1/10;
+dl = 1/24;
 %
 % Number of vertical Levels (! should be the same in param.h !)
 %
@@ -242,7 +242,7 @@ insitu2pot = 1;   % transform in-situ temperature to potential temperature
 %
 %  Day of initialisation for climatology experiments (=0 : 1st january 0h)
 %
-tini=0;
+tini=120;     % 1st May
 %
 % World Ocean Atlas directory (WOA2009)
 % (temp, salt and biological variables)
