@@ -1,18 +1,30 @@
 %% Plot surface
 clear all; close all;
-nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
 
 [lon, lat] = getLonLat(nc);
 h = nc{'h'}(:); h(h<100)=NaN;
 
 pcolor(lon, lat, -h); shading flat;
 
-%% Plot bathimetry
+%% Carson Coordinates
+
+latlon1 = [45.516667, -48.516667]
+latlon2 = [45.366667, -48.783333]
+
+
+
+%% Plot bathimetry with section
 clear all; close all;
-nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
+ncparent=netcdf('ROMS_FILES/roms_grd.nc');
+nc=netcdf('ROMS_FILES/roms_grd.nc.1');
 
 h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
+P1=[-48.87, 45.6667];
+P2=[-48.5, 45.3333];
+plot([P1(1) P2(1)],[P1(2) P2(2)],'r')
+hold on
 surf(lon, lat, -h);
 
 
@@ -40,10 +52,10 @@ end
 
 %% Plot section across latitude
 clear all; close all;
-nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
 
 [~, lat] = getLonLat(nc);
-h=nc{'h'}(:, floor(end/2)); [m, ~]=size(lat);
+h=nc{'h'}(:, 385); [m, ~]=size(lat);
 time=nc{'time'}(:); [maxt, ~]=size(time);
 
 rgb=tempColorbar();
@@ -53,16 +65,28 @@ for t=1:maxt
     zeta=nc{'zeta'}(t, :, floor(end/2));
     depth=squeeze(zlevs(h, zeta, 6, 0, 10, 32, 'r', 1)); x=depth;
     
-    temp=squeeze(nc{'temp'}(t, :, :, floor(end/2))); temp(temp<1)=NaN;
+    temp=squeeze(nc{'temp'}(t, :, :, floor(end/2))); temp(temp<-10)=NaN;
     for i=1:m
         y(i, :)=lat(i, 1);
     end
     pcolor(-y, depth, temp); colorbar; title(strcat("Day", " - ", num2str(nc{'time'}(t:t)/86400))); pause(0.5);
 end
 
+%%
+clear all; close all;
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
+
+[~, lat] = getLonLat(nc);
+h=nc{'h'}(:, floor(end/2)); [m, ~]=size(lat);
+
+[m, ~]=size(lat);
+
+    for i=1:m
+        y(i, :)=lat(i, 1);
+    end
 %% Surface 
 clear all; close all;
-nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc');
 
 [lon, lat] = getLonLat(nc);
 time=nc{'time'}(:); [maxt, ~]=size(time);
@@ -78,7 +102,7 @@ end
 %% Surface to GIF
 % https://waterprogramming.wordpress.com/2013/07/31/generating-gifs-from-matlab-figures/
 clear all; close all;
-nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
 
 [lon, lat] = getLonLat(nc);
 time=nc{'time'}(:); [maxt, ~]=size(time);
@@ -86,10 +110,10 @@ time=nc{'time'}(:); [maxt, ~]=size(time);
 rgb=tempColorbar();
 colormap(rgb);
 
-initLoop=100;
+initLoop=1;
 endLoop=120;
 
-for t=initLoop:endLoop
+for t=initLoop:maxt
  
     temp=nc{'temp'}(t, 32, :, :); temp(temp==0)=NaN;
     pcolor(lon, lat, temp); colorbar; shading flat; title(strcat("Day", " - ", num2str(nc{'time'}(t:t)/86400), " - ",  "temp ºC")); pause(0.2);
@@ -110,3 +134,43 @@ for t=initLoop:endLoop
     end
  
 end
+
+%% Section across latitude
+clear all; close all;
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
+
+latlon1 = [45.516667, -48.516667];
+latlon2 = [45.366667, -48.783333];
+
+lat=nc{'lat_rho'}(:);
+[lons, ~]=size(lat);
+
+lon=nc{'lon_rho'}(:);
+[~, lats]=size(lon);
+
+coord=latlon1;
+
+% get lat
+for cell=1:lons
+    if (lon(1, cell) > coord(2))
+        coord(2)=cell;
+        disp(cell);
+        break;
+    end
+end
+
+% get lon
+for cell=1:lats
+    if (lat(cell, 1) > coord(1))
+        coord(1)=cell;
+        disp(cell);
+        break;
+    end
+end
+
+%% Plot v on currentmeter 1
+t = nc{'temp'}(:, 1, 149, 89);
+
+plot(nc{'sustr'}(:,149, 89))
+hold on
+plot(nc{'svstr'}(:,149, 89))
