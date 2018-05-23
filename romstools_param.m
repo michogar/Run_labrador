@@ -242,7 +242,7 @@ insitu2pot = 1;   % transform in-situ temperature to potential temperature
 %
 %  Day of initialisation for climatology experiments (=0 : 1st january 0h)
 %
-tini=120;     % 1st May
+tini=150;     % 1st June
 %
 % World Ocean Atlas directory (WOA2009)
 % (temp, salt and biological variables)
@@ -315,8 +315,8 @@ tidalrank=[1 2 3 4 5 6 7 8 9 10];
 %
 % Compare with tidegauge observations
 %
-lon0 =  18.37;   % Example:
-lat0 = -33.91;   % Cape Town location
+lon0 = -52.67;   %
+lat0 = 47.59;   % St Johns location
 Z0   =  1;       % Mean depth of tide gauge
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

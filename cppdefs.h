@@ -56,7 +56,7 @@
                       /* OA Coupling via OASIS (MPI) */
 # undef  OA_COUPLING
                       /* Open Boundary Conditions */
-# undef  TIDES
+# define  TIDES
 # define OBC_EAST
 # define OBC_WEST
 # define OBC_NORTH
