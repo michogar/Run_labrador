@@ -50,7 +50,7 @@ end
 
 %% Plot bathimetry
 clear all; close all;
-nc=netcdf('/media/michogarcia/MARSH/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
 
 h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
@@ -240,12 +240,12 @@ end
 %% Horizontal salinity
 clear all; close all;
 nc1=netcdf('ROMS_FILES/roms_his.nc');
-nc=netcdf('ROMS_FILES/roms_his.nc.1');
+nc=netcdf('ROMS_FILES/history/19-apr/roms_his.nc.1');
 
 [lon, lat]=getLonLat(nc); [nt, ~]=size(nc{'time'}(:));
 
 for t=1:nt
-    salt=nc{'temp'}(t, 32, :, :); salt(salt<-10)=NaN;
+    salt=nc{'temp'}(t, 0, :, :); salt(salt<-10)=NaN;
     pcolor(lon, lat, salt); shading flat; title(num2str(t)); colorbar; pause(.5);
 end
 

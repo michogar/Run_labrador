@@ -9,8 +9,8 @@ pcolor(lon, lat, -h); shading flat;
 
 %% Carson Coordinates
 
-latlon1 = [45.516667, -48.516667]
-latlon2 = [45.366667, -48.783333]
+latlon1 = [45.516667, -48.516667];
+latlon2 = [45.366667, -48.783333];
 
 
 
@@ -21,8 +21,10 @@ nc=netcdf('ROMS_FILES/roms_grd.nc.1');
 
 h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
-P1=[-48.87, 45.6667];
-P2=[-48.5, 45.3333];
+%P1=[-48.87, 45.6667];
+%P2=[-48.5, 45.3333];
+P1=[-49.516667, 45.516667];
+P2=[-47.516667, 45.516667];
 plot([P1(1) P2(1)],[P1(2) P2(2)],'r')
 hold on
 surf(lon, lat, -h);
@@ -52,10 +54,10 @@ end
 
 %% Plot section across latitude
 clear all; close all;
-nc=netcdf('ROMS_FILES/roms_his.nc.1');
+nc=netcdf('ROMS_FILES/history/19-apr/roms_his.nc.1');
 
 [~, lat] = getLonLat(nc);
-h=nc{'h'}(:, 385); [m, ~]=size(lat);
+h=nc{'h'}(:, 89); [m, ~]=size(lat);
 time=nc{'time'}(:); [maxt, ~]=size(time);
 
 rgb=tempColorbar();
@@ -69,7 +71,7 @@ for t=1:maxt
     for i=1:m
         y(i, :)=lat(i, 1);
     end
-    pcolor(-y, depth, temp); colorbar; title(strcat("Day", " - ", num2str(nc{'time'}(t:t)/86400))); pause(0.5);
+    pcolor(-y, depth, temp); colorbar; shading flat; title(strcat("Day", " - ", num2str(nc{'time'}(t:t)/86400))); pause(0.5);
 end
 
 %%
@@ -135,9 +137,9 @@ for t=initLoop:maxt
  
 end
 
-%% Section across latitude
+%% Get cell from coords
 clear all; close all;
-nc=netcdf('ROMS_FILES/roms_his.nc.1');
+nc=netcdf('ROMS_FILES/history/19-apr/roms_his.nc.1');
 
 latlon1 = [45.516667, -48.516667];
 latlon2 = [45.366667, -48.783333];
@@ -168,9 +170,53 @@ for cell=1:lats
     end
 end
 
+%%
+clear all; close all;
+nc=netcdf('ROMS_FILES/history/19-apr/roms_his.nc.1');
+
+lats=nc{'lat_rho'}(:);
+[etas, ~]=size(lats);
+
+lons=nc{'lon_rho'}(:);
+[~, xis]=size(lons);
+
+latlon1 = [45.516667, -48.516667];
+coord=[latlon1(1), latlon1(2)];
+
+% get lat
+for cell=1:xis
+    if (lon(1, cell) > coord(2))
+        eta=cell;
+        disp(cell);
+        break;
+    end
+end
+
+% get lon
+for cell=1:etas
+    if (lat(cell, 1) > coord(1))
+        xi=cell;
+        disp(cell);
+        break;
+    end
+end
+
+
 %% Plot v on currentmeter 1
 t = nc{'temp'}(:, 1, 149, 89);
 
 plot(nc{'sustr'}(:,149, 89))
 hold on
 plot(nc{'svstr'}(:,149, 89))
+
+%% Get some s_rho from a prof
+clear all; close all;
+nc=netcdf('ROMS_FILES/history/19-apr/roms_his.nc.1');
+
+current1 = [45.516667, -48.516667];
+current2 = [45.366667, -48.783333];
+
+cell = fromLatLonToCell(nc, current1(1), current1(2));
+
+level = getLevelFromProf(nc, cell, 164);
+
