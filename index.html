@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="shortcut icon" href="./assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.4">
+    
+    
+      
+        <title>Modelando upwellings en el Cañón Carson</title>
+      
+    
+    
+      <script src="./assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="./assets/stylesheets/application-e2807e330f.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="." title="Modelando upwellings en el Cañón Carson" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+            
+            Home
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    Modelando upwellings en el Cañón Carson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Home
+      </label>
+    
+    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+      Home
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" title="Introducción" class="md-nav__link">
+    Introducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-el-modelo" title="Configurando el modelo" class="md-nav__link">
+    Configurando el modelo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zona-de-estudio" title="Zona de estudio" class="md-nav__link">
+    Zona de estudio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batimetria" title="Batimetría" class="md-nav__link">
+    Batimetría
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparando-resultados" title="Comparando resultados" class="md-nav__link">
+    Comparando resultados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusiones" title="Conclusiones" class="md-nav__link">
+    Conclusiones
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anexo" title="Anexo" class="md-nav__link">
+    Anexo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-modelo" title="Configuración del modelo" class="md-nav__link">
+    Configuración del modelo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" title="Introducción" class="md-nav__link">
+    Introducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-el-modelo" title="Configurando el modelo" class="md-nav__link">
+    Configurando el modelo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zona-de-estudio" title="Zona de estudio" class="md-nav__link">
+    Zona de estudio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batimetria" title="Batimetría" class="md-nav__link">
+    Batimetría
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparando-resultados" title="Comparando resultados" class="md-nav__link">
+    Comparando resultados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusiones" title="Conclusiones" class="md-nav__link">
+    Conclusiones
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anexo" title="Anexo" class="md-nav__link">
+    Anexo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-modelo" title="Configuración del modelo" class="md-nav__link">
+    Configuración del modelo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="modelando-upwelling-en-el-canon-carson">Modelando upwelling en el Cañón Carson</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>En el contexto de la asignatura de Modelización de la Universidad de Vigo, del curso 2017-2018, dentro de los objetivos de la asignatura está el aprendizaje de la plataforma de modelización ROMS Agrif <a href="https://www.croco-ocean.org/">[1]</a>. Para ello, como objetivo evaluable para cada alumno, se plantea la presentación de una experiencia libre desarrollada con dicho software. </p>
+<p>La zona de estudio elegida fue la zona de Newfoundland y la Corriente del Labrador por ser una zona de interés desde un punto de vista oceanográfico. Esta corriente es una corriente fria formada como combinación de la corriente West Greendland y la corriente de la Isla de Baffin. Es una corriente de agua fria que fluye desde el Estrecho de Hudson (60ºN) pegada a la plataforma continental hasta la cola de Grand Banks(43ºN) (Smith et al., 1937).</p>
+<p><img alt="" src="./_images/labrador.jpg" /></p>
+<p><em>Fig 1. Esquema de la Corriente del Labrador</em></p>
+<p>A partir de la selección de la zona de estudio, se revisaron trabajos relacionados con la idea de intentar reproducir los resultados de alguno de esos trabajos desde el software y comparar los resultados obtenidos en el trabajo con los resultados obtenidos desde el modelo. </p>
+<p>Para realizar esta comparación se eligió el estudio <strong>Kinsella, E. D., A. E. Hay, and W. W. Denner (1987), Wind and topographic effects on the Labrador Current at Carson Canyon, J. Geophys. Res., 92(C10), 10853–10869, doi: 10.1029/JC092iC10p10853</strong>. <a href="http://www.phys.ocean.dal.ca/people/po/Haypubs/KinsellaHayDenner_JGR1987.pdf">[2]</a>.</p>
+<p>Esta Tesis de Master fue realizada en 1987 con la intención de comprobar la interacción entre una corriente que fluye pegada a la plataforma y un cañón submarino. La corriente será la corriente del Labrador y el cañón submarino será el Cañón Carson.</p>
+<p><img alt="" src="./_images/carson_canyon.png" /></p>
+<p><em>Fig 2. Situación del Cañón Carson</em></p>
+<p>El Cañon Carson es un cañon submarino situado en la Región de Grand Banks que cruza el talud por la parte sureste del límite de la región. Sus características oceanográficas están dominadas por la Corriente del Labrador. Esta fluye en esa zona del noreste al suroeste, aproximadamente paralela a la isobata de 200m. Está confinada sobre los 200-300m de la columna de agua y tiene un ancho de 50 km con una velocidad media en su núcleo de 50 cm s<sup>-1</sup> (Kinsella. et. al, 1987)</p>
+<p>Para realizar una comparación de los datos del estudio con los del modelo, se preparará una configuración que emule las condiciones en las que se realizó el estudio por Kinsella et al. y se intentarán realizar las medidas similares mediante el software Matlab<a href="https://www.mathworks.com/products/matlab.html">[3]</a> presentando los datos de manera comparada.</p>
+<h2 id="configurando-el-modelo">Configurando el modelo</h2>
+<h3 id="zona-de-estudio">Zona de estudio</h3>
+<p>Para realizar la modelización de nuestra zona de interés, definiremos primero una malla madre cuyo bounding box tendrá las coordenadas en sistema EPSG:4326 (-40, 50) y (-56, 40).</p>
+<p><img alt="" src="./_images/mom_grid.png" />
+<em>Fig 3. Contorno de la malla madre</em></p>
+<p><img alt="" src="./_images/child_grid.png" />
+<em>Fig 4. Contorno de la malla hija</em></p>
+<h3 id="batimetria">Batimetría</h3>
+<p>El Cañón Carson tiene un ancho de 4 km de ancho por 56 km de largo. Debido a que el estudio trata sobre el efecto de la Corriente del Labrador sobre la topografía del cañón, deberemos generar la topografía con la mejor resolución posible. En primer lugar utilizaremos la batimetría de GEBCO para la malla madre. GEBCO es la batimetría publica de los oceanos publicada por la International Hydrographic Organization (IHO) y la Intergovernmental Oceanographic Commission (IOC) (de la UNESCO).</p>
+<p>El dataset utilizado para la batimetría de la zona de estudio se descargó directamente desde GEBCO<a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/gebco_30_second_grid/">[4]</a>. Se trata de la batrimetría <code>GEBCO_2014_Grid</code>, batimetría global con una resolución de arcos de 30 segundos.</p>
+<p>La batimetría se debió adaptar para ser usada en ROMS. Los datos de batimetría usados en ROMS por defecto son los <code>etopo2</code> que provee la NOAA. ROMS está preparado para leer datos de topografía que contengan las variables <code>lon</code>, <code>lat</code> y <code>topo</code> de tipo <code>float</code> las tres. En el caso de <code>gebco</code> el valor de la batimetría está guardado en la variable <code>elevation</code> por lo que habrá que renombrar esta variable a <code>topo</code>. Realizamos esta operación mediante el uso del comando <code>ncrename</code>. Después configuramos <code>romstools_param.m</code> para que ROMS utilizase la batimetría de GEBCO:</p>
+<pre><code>%
+%  Topography netcdf file name (ETOPO 2 or any other netcdf file
+%  in the same format)
+%
+TOPODIR = '../';
+%topofile = [TOPODIR,'Topo/etopo2.nc'];
+
+topofile = [TOPODIR,'GEBCO/gebco_topo.nc'];
+</code></pre>
+
+<p>Para la malla hija se utilizó una batimetría de mayor resolución. Se obtuvo de la NOAA<a href="https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ngdc.mgg.dem:11503">[5]</a> un dataset con resolución de 3 segundos. Tal como en el caso anterior, se tuvo que modificar el archivo <code>netCDF</code> para adaptarlo al ROMS. Con este dataset se generó la batimetría de la malla hija.</p>
+<p><img alt="" src="./_images/bathymetry_child_grid.png" />
+<em>Fig 5. Batimetría de la malla hija generada con Matlab</em></p>
+<h2 id="comparando-resultados">Comparando resultados</h2>
+<p>El estudio de Kinsella, 1987, utilizó datos tomados de dos campañas diferentes una en 1980 y la otra en 1981. Los sensores utilizados fueron CTDs y correntímetros. A partir de los datos de los CTDs se generaron perifles de salinidad y temperatura. Los datos de temperatura estaban relacionados con la marea, así que en primer lugar lo que se hizo fue configurar el modelo para añadirle la marea. </p>
+<p><img alt="" src="./_images/tides.svg" />
+<em>Fig 6. Comparación altura superficie libre (<strong>zeta</strong>) con marea y sin marea</em></p>
+<p>Los datos de marea en el estudio de Kinsella se obtuvieron a partir de los mareografos situados en la plataforma de petroleo Hibernia<a href="https://en.wikipedia.org/wiki/Hibernia_oil_field">[6]</a> coordenadas (46°45.026′N 48°46.976′W), y están simulados para las mismas coordenadas en el modelo.</p>
+<p>Con los datos de los CTDs realizaron secciones de temperatura y salinidad. </p>
+<p><img alt="" src="./_images/kinsella_zone.png" /></p>
+<p><em>Fig 7. Zona de estudio Kinsella, 1987. Los puntos indican toma de datos con CTDs</em></p>
+<p>Se emularon perfiles de salinidad y temperatura para la misma zona a partir de los datos del modelo. Los perfiles se realizaron mediante secciones latitudinales.</p>
+<p><img alt="" src="./_images/profiles_names.png" />
+<em>Fig 8. Perfiles latitudinales generados</em></p>
+<p>El resultado de estos perfiles para un tiempo <strong>t=38</strong> (10 días desde que se arrancó el modelo):</p>
+<table>
+<thead>
+<tr>
+<th>Temperatura</th>
+<th>Salinidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="./_images/p1_temp.svg" /></td>
+<td><img alt="" src="./_images/p1_salt.svg" /></td>
+</tr>
+<tr>
+<td><img alt="" src="./_images/p2_temp.svg" /></td>
+<td><img alt="" src="./_images/p2_salt.svg" /></td>
+</tr>
+<tr>
+<td><img alt="" src="./_images/p3_temp.svg" /></td>
+<td><img alt="" src="./_images/p3_salt.svg" /></td>
+</tr>
+</tbody>
+</table>
+<p>En el estudio de Kinsella, 1987, se obtenían datos de temperatura y salinidad de correntímetros. Los correntímetros estaban instalados a 120 y 164 metros de profundidad uno en las coordenadas (45.516667, -48.516667) y el otro en las coordenadas (45.366667, -48.783333). Para el situado a 164m se obtuvieron perfiles de temperatura, salinidad y velocidades horizontales y verticales.</p>
+<p><img alt="" src="./_images/c1_temp.svg" />
+<img alt="" src="./_images/c1_salt.svg" />
+<img alt="" src="./_images/c1_u.svg" />
+<img alt="" src="./_images/c1_v.svg" />
+<img alt="" src="./_images/c1_w.svg" />
+<em>Fig 9. Perfiles de Temperatura, componentes u y v de la velocidad y velocidad vertical.</em></p>
+<p>y a partir de los datos de u y v se calcularon la intensidad de la corriente y la dirección de la misma.</p>
+<p><img alt="" src="./_images/c1_intensity_current.svg" />
+<em>Fig 10. Itensidad de la corriente (cm/s)</em></p>
+<p><img alt="" src="./_images/c1_direction_current.svg" />
+<em>Fig 11. Perfíl de dirección de la corriente (º)</em></p>
+<p>Para comprobar si existe relación entre la velocidad vertical y la marea se realizó la corrección de esta componente eliminando el efecto de la marea.</p>
+<p><img alt="" src="./_images/c1_w_minus_tide.svg" />
+<em>Fig 12. Perfíl de velocidad vertical corregido con la marea</em></p>
+<p>Otro de los datos en los que se apoya el estudio de Kinsella, 1987, es en los vientos que afectaron la zona durante la época de muestreo. Estos fueron medidos en la plataforma Hibernia. A partir de los datos del modelo obtuvimos:</p>
+<p><img alt="" src="./_images/hibernia_wind_speed.svg" />
+<em>Fig 13. Velocidad del viento en las coordenadas de Hibernia</em></p>
+<p><img alt="" src="./_images/hibernia_wind_direction.svg" />
+<em>Fig 14. Dirección del viento en las coordenadas de Hibernia</em></p>
+<h2 id="conclusiones">Conclusiones</h2>
+<p>A partir de los datos del modelo no hemos sido capaces de detectar ningún proceso de afloramiento. La componente vertical de la velocidad en el correntímetro parece estar afectada por la marea, pero al realizar la correción eliminándole esta, no se aprecia variación en la misma. El calculo de la correción se ha realizado dividiendo la marea por los segundos del día (86400) para obtener la velocidad media diaria de la marea y restñandole esta a la componente vertical de la velocidad.</p>
+<p>Por otro lado en el estudio de Kinsella, se observaba el upwelling en consonancia con el regimen de vientos de la zona. La aparición de una tormenta propiciaba el proceso de upwelling. Otro de los posibles problemas es que no se ha modelado este viento ya que dentro de las condiciones de contorno solo tenemos un valor de viento por mes.</p>
+<p>Las carácterísticas de la Corriente del Labrador que se describen en Kinsell, 1987, encajan con las que se han obtenido dentro del modelo. Tanto la dirección de la corriente, la intensidad y su situación con respecto a la batimetría encajan con lo descrito en el estudio.</p>
+<h2 id="anexo">Anexo</h2>
+<h3 id="configuracion-del-modelo">Configuración del modelo</h3>
+<p>La configuración del modelo se puede descargar de <a href="https://github.com/michogar/Run_labrador/archive/master.zip">aquí</a></p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="./assets/javascripts/application-06a3e72efd.js"></script>
+      <script>app.initialize({url:{base:"."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
