@@ -50,7 +50,7 @@ end
 
 %% Plot bathimetry
 clear all; close all;
-nc=netcdf('/media/michogarcia/MARSH/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
 
 h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
@@ -59,12 +59,12 @@ surf(lon, lat, -h);
 %% Vertical plot
 
 clear all; close all;
-nc=netcdf('ROMS_FILES/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc.1');
 
-lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:); [m, n]=size(lon)
+lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:); [m, n]=size(lon);
 h=nc{'h'}(:); nt=size(nc{'time'}(:));
 
-ip1=23; jp1=24; ip2=52; jp2=52;
+ip1=1; jp1=1; ip2=210; jp2=210;
 
 for i=ip1:ip2
     it(i)=i;
@@ -76,15 +76,15 @@ ht=h(it(ip1:ip2),jt(jp1:jp2));
 for t=1:1
     zeta=nc{'zeta'}(t,:,:); 
     zetat=zeta(it(ip1:ip2),jt(jp1:jp2));
-    depth=zlevs(h(it(ip1:ip2), jt(jp1:jp2)), zeta(it(ip1:ip2), jt(jp1:jp2)), 6, 0, 10, 32, 'r', 1);
+    depth=zlevs(ht, zeta(it(ip1:ip2), jt(jp1:jp2)), 6, 0, 10, 32, 'r', 1);
     for i=1:32
-        for j=1:29
+        for j=1:210
             xt(i,j)=j;
             deptht(i,j)=depth(i,1,j);
         end
     end
 
-    s=nc{'salt'}(t,:,:,:); %sh=nc{'salt'}(t,32,:,:);
+    s=nc{'temp'}(t,:,:,:); %sh=nc{'salt'}(t,32,:,:);
     st=s(:,it(ip1:ip2),jt(jp1:jp2));
     pcolor(xt,deptht,squeeze(st(:,1,:)));
 end
@@ -239,20 +239,29 @@ end
 
 %% Horizontal salinity
 clear all; close all;
-nc=netcdf('ROMS_FILES/roms_his.nc');
-nc1=netcdf('ROMS_FILES/roms_his.nc.1');
+nc1=netcdf('ROMS_FILES/roms_his.nc');
+nc=netcdf('ROMS_FILES/history/19-apr/roms_his.nc.1');
 
-[lon, lat]=getLonLat(nc); [nt, kk]=size(nc{'time'}(:));
+[lon, lat]=getLonLat(nc); [nt, ~]=size(nc{'time'}(:));
 
 for t=1:nt
-    salt=nc{'salt'}(t, 32, :, :); salt(salt<30)=NaN;
+    salt=nc{'temp'}(t, 0, :, :); salt(salt<-10)=NaN;
     pcolor(lon, lat, salt); shading flat; title(num2str(t)); colorbar; pause(.5);
 end
 
-%%
+%% show differences between bathymetries
+clear all; close all;
+nc=netcdf('ROMS_FILES/roms_grd.nc');
+nc1=netcdf('ROMS_FILES/roms_grd.nc.1');
 
-B = [ [1 2 3]' [2 4 7]' [3 5 8]'];
+lat1=nc1{'lat_rho'}(:);
 
-for b = B(:)
-    disp(b)
+[maxlat ~]=size(lat1);
+
+for lati=1:maxlat
+    lat1=nc1{'lat_rho'}(:, lati);
+    lat=nc{'lat_rho'}(:, lati);
+    h1=nc1{'h'}(:, lati);
+    h=nc{'h'}(:, lati);
+    plot(lat1, -h1); pause(1);
 end

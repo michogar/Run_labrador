@@ -51,19 +51,19 @@
 # define  OPENMP
 # undef  MPI
                       /* Nesting */
-# undef  AGRIF
-# undef  AGRIF_2WAY
+# define  AGRIF
+# define  AGRIF_2WAY
                       /* OA Coupling via OASIS (MPI) */
 # undef  OA_COUPLING
                       /* Open Boundary Conditions */
-# undef  TIDES
+# define  TIDES
 # define OBC_EAST
 # define OBC_WEST
 # define OBC_NORTH
 # define OBC_SOUTH
                       /* Applications */
 # undef  BIOLOGY
-# define  FLOATS
+# undef  FLOATS
 # undef  STATIONS
 # undef  PASSIVE_TRACER
 # undef  SEDIMENT

@@ -52,14 +52,14 @@ ROMS_config = 'LABRADOR';
 %
 % Grid dimensions:
 %
-lonmax = -60;   % Maximum longitude [degree east]
-latmax = 45;   % Maximum latitude  [degree north]
-lonmin = -80;   % Minimum longitude [degree east]
-latmin = 25;   % Minimum latitude  [degree north]
+lonmax = -40;   % Maximum longitude [degree east]
+latmax = 50;   % Maximum latitude  [degree north]
+lonmin = -56;   % Minimum longitude [degree east]
+latmin = 40;   % Minimum latitude  [degree north]
 %
 % Grid resolution [degree]
 %
-dl = 1/6;
+dl = 1/24;
 %
 % Number of vertical Levels (! should be the same in param.h !)
 %
@@ -93,7 +93,9 @@ hmax = 5000;
 %  in the same format)
 %
 TOPODIR = '../';
-topofile = [TOPODIR,'Topo/etopo2.nc'];
+%topofile = [TOPODIR,'Topo/etopo2.nc'];
+
+topofile = [TOPODIR,'GEBCO/gebco_topo.nc'];
 %
 % Slope parameter (r=grad(h)/h) maximum value for topography smoothing
 %
@@ -148,6 +150,7 @@ RUN_dir=[pwd,'/'];
 %  ROMS input netcdf files directory
 %
 ROMS_files_dir=[RUN_dir,'ROMS_FILES/'];
+%ROMS_files_dir='/media/michogarcia/Casa/ROMS_FILES/';
 %
 %  Global data directory (etopo, coads, datasets download from ftp, etc..)
 %
@@ -239,7 +242,7 @@ insitu2pot = 1;   % transform in-situ temperature to potential temperature
 %
 %  Day of initialisation for climatology experiments (=0 : 1st january 0h)
 %
-tini=0;
+tini=150;     % 1st June
 %
 % World Ocean Atlas directory (WOA2009)
 % (temp, salt and biological variables)
@@ -312,8 +315,8 @@ tidalrank=[1 2 3 4 5 6 7 8 9 10];
 %
 % Compare with tidegauge observations
 %
-lon0 =  18.37;   % Example:
-lat0 = -33.91;   % Cape Town location
+lon0 = -52.67;   %
+lat0 = 47.59;   % St Johns location
 Z0   =  1;       % Mean depth of tide gauge
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
