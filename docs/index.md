@@ -93,7 +93,7 @@ En el estudio de Kinsella, 1987, se obtenían datos de temperatura y salinidad d
 ![](_images/c1_u.svg)
 ![](_images/c1_v.svg)
 ![](_images/c1_w.svg)
-*Fig 9. Perfiles de Temperatura, componentes u y v de la velocidad y velocidad vertical.*
+*Fig 9. Perfiles de Temperatura, Salinidad, componentes u y v de la velocidad y velocidad vertical.*
 
 y a partir de los datos de u y v se calcularon la intensidad de la corriente y la dirección de la misma.
 
