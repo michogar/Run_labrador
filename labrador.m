@@ -23,13 +23,30 @@ h=nc{'h'}(:);
 lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
 %P1=[-48.87, 45.6667];
 %P2=[-48.5, 45.3333];
-P1=[-49.516667, 45.516667];
-P2=[-47.516667, 45.516667];
-plot([P1(1) P2(1)],[P1(2) P2(2)],'r')
+P1=[-48.8, 45.66666667];
+P2=[-48.2, 45.66666667];
+P3=[-48.8, 45.41666667];
+P4=[-48.2, 45.41666667];
+P5=[-48.8, 45.25000000];
+P6=[-48.2, 45.25000000];
+plot([P1(1) P2(1)],[P1(2) P2(2)], 'r')
+hold on
+plot([P3(1) P4(1)],[P3(2) P4(2)],'r')
+hold on
+plot([P5(1) P6(1)],[P5(2) P6(2)],'r')
 hold on
 surf(lon, lat, -h);
 
+%%
+clear all; close all;
+ncparent=netcdf('ROMS_FILES/roms_grd.nc');
+nc=netcdf('ROMS_FILES/roms_grd.nc.1');
 
+h=nc{'h'}(:);
+lon=nc{'lon_rho'}(:); lat=nc{'lat_rho'}(:);
+y=45.5167;
+x=[45:50];
+plot(x, y, 'r');
 %% Plot section across longitude
 clear all; close all;
 nc=netcdf('/media/michogarcia/Casa/ROMS_FILES/roms_his.nc');
@@ -220,3 +237,11 @@ cell = fromLatLonToCell(nc, current1(1), current1(2));
 
 level = getLevelFromProf(nc, cell, 164);
 
+%% Tides
+ncold=netcdf('ROMS_FILES/history/19-apr/roms_his.nc');
+nc=netcdf('ROMS_FILES/roms_his.nc');
+plot(nc{'zeta'}(1:100, 89, 149))
+hold
+plot(ncold{'zeta'}(1:100, 89, 149))
+ylabel('Altura (m)'); xlabel('Timesteps');
+legend({'Con marea', 'Sin marea'});
