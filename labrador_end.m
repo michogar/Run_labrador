@@ -138,6 +138,8 @@ h=nc{'h'}(eta, :);
 [m, ~]=size(lat);
 [~, lonssize]=size(lons);
 
+rgb=tempColorbar();
+colormap(rgb);
 
 % with this hack delete the unnecessary
 % rows

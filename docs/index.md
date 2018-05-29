@@ -1,5 +1,7 @@
 # Modelando upwelling en el Cañón Carson
 
+![](_images/p2_temp.gif)
+
 ## Introducción
 En el contexto de la asignatura de Modelización de la Universidad de Vigo, del curso 2017-2018, dentro de los objetivos de la asignatura está el aprendizaje de la plataforma de modelización ROMS Agrif [[1]](https://www.croco-ocean.org/). Para ello, como objetivo evaluable para cada alumno, se plantea la presentación de una experiencia libre desarrollada con dicho software. 
 
