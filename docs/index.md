@@ -125,7 +125,8 @@ Las carácterísticas de la Corriente del Labrador que se describen en Kinsell, 
 
 ## Anexo
 ### Configuración del modelo
-La configuración del modelo se puede descargar de [aquí](https://github.com/michogar/Run_labrador/archive/master.zip)
+Descarga de la configuración del modelo [Run_labrador.zip (1.8 Mb)](https://github.com/michogar/Run_labrador/archive/master.zip)
+El repositorio de [Github](https://github.com/michogar/Run_labrador)
 
 
 
